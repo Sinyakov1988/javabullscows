@@ -1,11 +1,9 @@
 package bullscows.model;
 
-import java.util.Arrays;
-
 public class Game {
     public static final int codeSize = 4;
-    char[] code;
-    int count;
+    private char[] code;
+    private int count;
 
     public Game(){
         code = new char[codeSize];
@@ -24,7 +22,7 @@ public class Game {
         }
         return result;
     }
-    void incCount() {
+    private void incCount() {
         count++;
     }
     public void sayTurn() {
@@ -32,15 +30,15 @@ public class Game {
 
     }
 
-    void sayCodePrepared() {
+    private void sayCodePrepared() {
         System.out.println("The secret code is prepared: ****.");
     }
 
-    void sayWin() {
+    public void sayWin() {
         System.out.println("Congrats! The secret code is " + toString() + ".");
     }
 
-    char[] convert(int answer) {
+    private char[] convert(int answer) {
         char[] res = new char[codeSize];
         for (int i = 0; i < codeSize; i++) {
             int tmp = 1;
@@ -52,7 +50,7 @@ public class Game {
         return res;
     }
 
-    int getBulls(int answer) {
+    private int getBulls(int answer) {
         int result = 0;
         char[] buffer = convert(answer);
         for (int i = 0; i < codeSize; i++) {
@@ -63,7 +61,7 @@ public class Game {
         return result;
     }
 
-    int getCows(int answer) {
+    private int getCows(int answer) {
         int result = 0;
         char[] buffer = convert(answer);
         for (int i = 0; i < codeSize; i++) {
